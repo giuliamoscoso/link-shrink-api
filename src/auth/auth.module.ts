@@ -3,6 +3,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { Module } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { EnvSchemaT } from 'src/env';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
@@ -22,5 +23,6 @@ import { EnvSchemaT } from 'src/env';
       },
     }),
   ],
+  providers: [JwtStrategy],
 })
 export class Authmodule {}
