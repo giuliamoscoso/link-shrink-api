@@ -19,9 +19,9 @@ import { ShrinkLinkService } from './shrinker/shrink-link.service';
   ],
   controllers: [
     AuthenticateController,
+    ListUsersController,
     CreateUserController,
     ShrinkLinkController,
-    ListUsersController,
   ],
   providers: [PrismaService, ShrinkLinkService],
 })

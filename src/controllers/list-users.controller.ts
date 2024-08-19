@@ -17,7 +17,7 @@ export class ListUsersController {
       },
     });
 
-    if (!users) return 'No users found.';
+    if (!users) return { message: 'No users found.' };
 
     return users;
   }

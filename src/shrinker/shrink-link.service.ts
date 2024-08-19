@@ -7,11 +7,19 @@ export class ShrinkLinkService {
   constructor(private readonly prisma: PrismaService) {}
 
   async shortenUrl(originalUrl: string, creatorId?: string): Promise<string> {
-    const isUrlAlreadyShrinked = await this.prisma.link.findUnique({
+    const isUrlAlreadyShrinked = await this.prisma.link.findFirst({
       where: { originalUrl },
     });
 
     if (isUrlAlreadyShrinked) {
+      if (isUrlAlreadyShrinked.deletedAt) {
+        const link = await this.prisma.link.update({
+          where: { id: isUrlAlreadyShrinked.id },
+          data: { deletedAt: null },
+        });
+
+        return link.shortUrl;
+      }
       return isUrlAlreadyShrinked.shortUrl;
     }
 
