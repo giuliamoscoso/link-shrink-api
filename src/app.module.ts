@@ -8,6 +8,7 @@ import { AuthenticateController } from './controllers/authenticate.controller';
 import { ShrinkLinkController } from './controllers/shrink-link.controller';
 import { ListUsersController } from './controllers/list-users.controller';
 import { ShrinkLinkService } from './shrinker/shrink-link.service';
+import { ListLinksController } from './controllers/list-links.controller';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ShrinkLinkService } from './shrinker/shrink-link.service';
     ListUsersController,
     CreateUserController,
     ShrinkLinkController,
+    ListLinksController,
   ],
   providers: [PrismaService, ShrinkLinkService],
 })
