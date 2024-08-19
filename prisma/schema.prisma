@@ -28,13 +28,13 @@ model Link {
   id          String    @id @default(cuid())
   originalUrl String    @unique
   shortUrl    String    @unique
-  creatorId   String    @map("creator_id")
+  creatorId   String?    @map("creator_id")
   accessCount Int       @default(0) @map("access_count")
   createdAt   DateTime  @default(now()) @map("created_at")
   updatedAt   DateTime? @updatedAt @map("updated_at")
   deletedAt   DateTime? @map("deleted_at")
 
-  creator User @relation(fields: [creatorId], references: [id])
+  creator User? @relation(fields: [creatorId], references: [id])
 
   @@map("links")
 }

@@ -5,7 +5,9 @@ import { CreateUserController } from './controllers/create-user.controller';
 import { envSchema } from './env';
 import { Authmodule } from './auth/auth.module';
 import { AuthenticateController } from './controllers/authenticate.controller';
+import { ShrinkLinkController } from './controllers/shrink-link.controller';
 import { ListUsersController } from './controllers/list-users.controller';
+import { ShrinkLinkService } from './shrinker/shrink-link.service';
 
 @Module({
   imports: [
@@ -18,8 +20,9 @@ import { ListUsersController } from './controllers/list-users.controller';
   controllers: [
     AuthenticateController,
     CreateUserController,
+    ShrinkLinkController,
     ListUsersController,
   ],
-  providers: [PrismaService],
+  providers: [PrismaService, ShrinkLinkService],
 })
 export class AppModule {}
