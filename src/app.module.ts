@@ -24,6 +24,7 @@ import { ListLinksController } from './controllers/list-links.controller';
     CreateUserController,
     ShrinkLinkController,
     ListLinksController,
+    DeleteLinkController,
   ],
   providers: [PrismaService, ShrinkLinkService],
 })
